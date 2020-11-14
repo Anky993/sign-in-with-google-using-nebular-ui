@@ -1,0 +1,17 @@
+<nb-layout>
+  <nb-layout-column>
+    <nb-card>
+      <nb-card-body>
+        <!-- <p>Current User Token: {{ token|json }}</p> -->
+        <p *ngIf="profile">Hi Welcome, You have successfully signed in.  </p>
+
+        <nb-layout-header *ngIf="profile">
+          <nb-user [name]="user?.name" [picture]="user?.picture"></nb-user>
+        </nb-layout-header>
+
+        <button nbButton status="success" *ngIf="!token" (click)="login()">Sign In with Google</button>
+        <button nbButton status="warning" *ngIf="token" (click)="logout()">Sign Out</button>
+      </nb-card-body>
+    </nb-card>
+  </nb-layout-column>
+</nb-layout>
